@@ -1,0 +1,9 @@
+#permission refusée = en maintenance
+ErrorDocument 401 /observatoire/erreurs/maintenance.html
+ErrorDocument 403 /observatoire/erreurs/maintenance.html
+ErrorDocument 405 /observatoire/erreurs/maintenance.html
+
+
+order deny,allow
+deny from all
+allow from 195.83.204.117

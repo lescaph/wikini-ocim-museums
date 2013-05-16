@@ -1,0 +1,50 @@
+a {
+    color: #990000;
+    text-decoration: none;
+}
+
+img {
+    border:none;
+    margin:5mm;
+}
+
+#header_pdf {
+    background-color:red;
+    color:white;
+    text-align:right;
+    background-image:url(tools/bazar/presentation/images/ocim.png);
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    padding: 5mm 10mm 5mm 10mm;
+}
+
+h1.BAZ_fiche_titre_pdf {
+    font-size:90%;
+}
+
+.titre_accordeon {
+    font-weight:normal;
+    font-size:70%;
+    color:orange;
+}
+
+h4.pdf_legend {
+    text-align:center;
+}
+
+.titre_grand_pdf {
+    font-size:150%;
+}
+
+.titre_gras_pdf {
+    font-style: italic;/*a changer avec une mise à jour de html2pdf*/
+    font-weight:bold;
+}
+
+.BAZ_label{
+    font-weight:bold;
+}
+
+.retrait {
+    font-style: italic;
+}

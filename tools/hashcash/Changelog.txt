@@ -1,0 +1,3 @@
+2008/04/22 : Correction bugs aperçu et suppression du flock() non reconnu par free
+2008/05/05 : ajout tag version dans fichier de description
+2008/05/05 : ajout tag version dans fichier de description

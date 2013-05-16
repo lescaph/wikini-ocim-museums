@@ -1,0 +1,15 @@
+<form class="formulaire_identification" action="<?= $urldepart; ?>" method="post">
+<input type="hidden" name="action" value="login" />
+<input type="hidden" name="urldepart" value="<?= $urldepart; ?>" />
+<span class="inscription_iden"><a href="<?= $urllogin; ?>" title="S'enregistrer">> S'inscrire</a></span>
+<span class="titre_identification">&nbsp;S'identifier</span>
+<?php if ($error) : ?>
+	<div class="error"><?= $error; ?></div>
+<?php endif; ?>
+<input name="name" class="input_iden" size="8" onfocus="if (this.value=='NomWiki') {this.value='';}" value="<?=($name ? htmlspecialchars($name) : 'NomWiki');?>" /><br />
+<input type="password" name="password" class="input_iden" size="8" />&nbsp;
+<input type="hidden" name="remember" value="0" />
+<input type="checkbox" id="remember" name="remember" value="1" />
+<label for="remember">Retenir</label>
+<input type="submit" class="bouton_iden" value="OK" />
+</form>

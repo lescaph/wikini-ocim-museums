@@ -1,0 +1,17 @@
+<span class="titre_identification">Identification</span>
+<form class="formulaire_identification" action="<?= $urldepart; ?>" method="post">
+<input type="hidden" name="action" value="login" />
+<input type="hidden" name="urldepart" value="<?= $urldepart; ?>" />
+<?php if ($error) : ?>
+	<div class="error"><?= $error; ?></div>
+<?php endif; ?>
+<span class="texte_iden">D&eacute;j&agrave; membre :</span>
+<span class="label_iden">Identifiant</span>
+<input name="name" class="input_iden" size="7" value="<?php if($name) : ?><?= htmlspecialchars($name) ?><?php endif; ?>" /><br />
+<span class="label_iden">Mot de passe</span><input type="password" name="password" class="input_iden" size="7" /><br />
+<input type="hidden" name="remember" value="0" /><input type="checkbox" id="remember" name="remember" value="1" />
+<label for="remember">Se souvenir de moi</label>
+<input type="submit" class="bouton_iden" value="S'identifier" />
+<span class="texte_iden">Ou pas encore membre :</span>
+<span class="inscription_iden"><a href="<?= $urllogin; ?>" title="S'enregistrer">S'enregistrer</a></span>
+</form>

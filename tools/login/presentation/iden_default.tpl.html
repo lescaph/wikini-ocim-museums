@@ -1,0 +1,8 @@
+<span class="message_identification"><?= $bienvenue; ?>&nbsp;!</span>
+<form class="formulaire_identification" action="<?= $urllogin; ?>" method="post">
+<input type="hidden" name="action" value="update" />
+<input type="hidden" name="urldepart" value="<?= $urldepart; ?>" />
+<input class="bouton_iden" type="button" value="D&eacute;connexion" onclick="document.location='<?= $urllogin; ?>&amp;action=logout'" />
+<span class="modif_inscription_iden"><a href="<?= $urllogin; ?>" title="Modifier mon inscription">Modifier mon inscription</a></span>
+<?= $PageMenuUser; ?>
+</form>
