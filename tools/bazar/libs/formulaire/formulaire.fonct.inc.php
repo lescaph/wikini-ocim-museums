@@ -35,6 +35,19 @@
 // +------------------------------------------------------------------------------------------------------+
 */
 
+/** no_magic_quotes() - Supprime les antislashs ajoutés par la fonction magic_quotes
+*
+* @param    String  chaîne sur laquelle passer la fonction
+*/
+function no_magic_quotes($query) {
+    if (!get_magic_quotes_gpc()) {
+        $data = explode("\\",$query);
+        $cleaned = implode("",$data);
+        return $cleaned;
+    }
+    else return $query;
+}
+
 //comptatibilité avec PHP4...
 if (version_compare(phpversion(), '5.0') < 0) {
     eval('
@@ -1780,22 +1793,7 @@ function listefiche(&$formtemplate, $tableau_template, $mode, $valeurs_fiche)
 		while ($ligne = $resultat->fetchRow())
 		{
 			$select[$ligne[0]] = $ligne[1] ;
-		}
-        
-     //test
-					ob_start(); 
-					$val = get_defined_vars(); 
-					print_r($val); 
-					$val_debug=ob_get_contents(); 
-					ob_end_clean(); 
-					
-					$monfichier = fopen('/home/antoine/compteur.txt', 'r+');
-					fputs($monfichier, $val_debug);
-					fclose($monfichier);
-
-
-		//test
-        
+		}        
 
 		$option = array('id' => $tableau_template[0].$tableau_template[1].$tableau_template[6]);
 		if (isset($valeurs_fiche[$tableau_template[0].$tableau_template[1].$tableau_template[6]]) && $valeurs_fiche[$tableau_template[0].$tableau_template[1].$tableau_template[6]]!='')
@@ -1856,7 +1854,7 @@ function listefiche(&$formtemplate, $tableau_template, $mode, $valeurs_fiche)
 			$select[0]=INDIFFERENT;
 			while ($ligne = $resultat->fetchRow())
 			{
-				$select[$ligne[0]] = $ligne[1] ;
+				$select[$ligne[0]] = no_magic_quotes($ligne[1]) ;
 			}
 
 			$option = array('id' => $tableau_template[0].$tableau_template[1].$tableau_template[6]);

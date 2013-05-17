@@ -45,19 +45,6 @@ require_once BAZ_CHEMIN.'libs'.DIRECTORY_SEPARATOR.'HTML/QuickForm/textarea.php'
 require_once BAZ_CHEMIN.'libs'.DIRECTORY_SEPARATOR.'HTML/Table.php' ;
 require_once BAZ_CHEMIN.'libs'.DIRECTORY_SEPARATOR.'formulaire/formulaire.fonct.inc.php';
 
-/** no_magic_quotes() - Supprime les antislashs ajoutés par la fonction magic_quotes
-*
-* @param    String  chaîne sur laquelle passer la fonction
-*/
-function no_magic_quotes($query) {
-    if (!get_magic_quotes_gpc()) {
-        $data = explode("\\",$query);
-        $cleaned = implode("",$data);
-        return $cleaned;
-    }
-    else return $query;
-}
-
 /** export_pdf () - Renvoie le contenu html d'une fiche en pdf
 *
 * @param    Integer  numéro de la fiche à exporter
@@ -671,7 +658,7 @@ function mes_fiches() {
 	<li><a class="ajout_fiche" href="'.str_replace('&','&amp;', $GLOBALS['_BAZAR_']['url']->getURL()).'" title="'.BAZ_SAISIR_UNE_NOUVELLE_FICHE.'">'.BAZ_SAISIR_UNE_NOUVELLE_FICHE.'</a></li></ul>';
 	$GLOBALS['_BAZAR_']['url']->removeQueryString(BAZ_VARIABLE_ACTION);
 	$GLOBALS['_BAZAR_']['url']->removeQueryString(BAZ_VARIABLE_VOIR);
-	return $res;
+	return no_magic_quotes($res);
 }
 
 /** baz_gestion_droits() interface de gestion des droits
